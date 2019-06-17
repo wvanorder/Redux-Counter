@@ -1,5 +1,6 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+export const DIVIDE = 'DIVIDE';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -25,3 +26,10 @@ export const decrement = () => {
     payload: 1,
   }
 };
+
+export const divide = () => {
+  return {
+    type: 'DIVIDE',
+    payload: 5,
+  }
+}

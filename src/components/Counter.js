@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { increment, decrement } from '../actions';
+import { increment, decrement, divide } from '../actions';
 
 class Counter extends Component {
     incrementIfOdd = (count) => {
@@ -14,6 +14,10 @@ class Counter extends Component {
         // increments after waiting for one second
         setTimeout(() => {this.props.increment()}, 1000);
     };
+
+    divideByFive = (count) => {
+        return count % 5 ? null : this.props.divide();
+    }
 
     render() {
         // Fill in the two button onClick methods
@@ -35,6 +39,9 @@ class Counter extends Component {
                 </button>
                 <button onClick={this.incrementAsync}>
                     Increment async
+                </button>
+                <button onClick={() => {this.divideByFive(this.props.count)}}>
+                    Divide by 5
                 </button> 
             </p>
         );
@@ -58,4 +65,4 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, { increment, decrement })(Counter);
+export default connect(mapStateToProps, { increment, decrement, divide })(Counter);

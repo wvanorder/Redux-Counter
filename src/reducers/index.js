@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from '../actions';
+import { INCREMENT, DECREMENT, DIVIDE } from '../actions';
 
 const initialState = {
   count: 0
@@ -22,7 +22,11 @@ export default (state = initialState, action) => {
       ...state,
       count: state.count - action.payload
     }
-    // Fill in the body of this case
+    case DIVIDE:
+    return {
+      ...state,
+      count: state.count / action.payload
+    }    // Fill in the body of this case
     default:
       return state;
   }
